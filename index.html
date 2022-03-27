@@ -25,10 +25,12 @@
 			<div class="inputtext"><label>아벤타도르 그린 </label><input type="checkbox" id="ag" value="160"></div>
 			<div class="inputtext"><label>에스토크 메탈그레이</label><input type="checkbox" id="em" value="130"></div>
 			<div class="inputtext"><label>우르스 썬</label><input type="checkbox" id="us" value="130"></div>
+			<div class="inputtext"><label>람보르기니 아무거나!</label><input type="checkbox" id="la" value="130"></div>
 			<br>
 			<div class="inputtext"><label>아벤타도르 블루 </label><input type="checkbox" id="ab" value="160"></div>
 			<div class="inputtext"><label>에스토크 골드</label><input type="checkbox" id="eg" value="130"></div>
 			<div class="inputtext"><label>우르스 펄</label><input type="checkbox" id="up" value="130"></div>
+			<div class="inputtext"><label>밑에줄 3개중 아무거나!</label><input type="checkbox" id="ls" value="130"></div>
 			<br>			
 			<div class="inputtext"><label>아벤타도르 그래파이트(히든)</label><input type="checkbox" id="ap" value="130"></div>
 		</div>
@@ -60,6 +62,8 @@ function calc()
 	var teg = document.getElementById("eg").checked;
 	var tup = document.getElementById("up").checked;
 	var tap = document.getElementById("ap").checked;
+	var tla = document.getElementById("la").checked;
+	var tls = document.getElementById("ls").checked;
 	for (i = 0; i < 1;) 
 	{
 		var stoken = 0;
@@ -130,7 +134,24 @@ function calc()
 				성공 조건 판단
 			*/
 			var sucreq = 0;
-			if (tap)
+			if (tla)
+			{
+				if (sag||sem||sus||sab||seg||sup||(stoken>=1))
+				{
+					totaltry = totaltry + 1;
+					break
+				}
+				
+			}
+			else if (tls)
+			{
+				if (sab||seg||sup||(stoken>=3))
+				{
+					totaltry = totaltry + 1;
+					break
+				}
+			}
+			else if (tap)
 			{
 				// 모든거 다모으고 3개추가
 				if (!sag)
@@ -175,7 +196,7 @@ function calc()
 				}
 			}
 		}
-		if (totaltry >= 10000)
+		if (totaltry >= 30000)
 			break
 	}
 	/*

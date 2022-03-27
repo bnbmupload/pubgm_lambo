@@ -208,10 +208,15 @@ function calc()
 	*/
 	ucc = ucc/totaltry;
 	totaluc = Math.ceil(ucc/10)*1620;
+	var totalmoney = Math.ceil(totaluc/8100);
+	totalmoney = nwc(totalmoney*110000);
 	totaluc = nwc(totaluc);
 	text += "평균적으로 "
 	text += totaluc;
-	text += "UC 사용해서 끝냈당";
+	text += "UC 사용해서 끝냈당<br>";
+	text += "이거 UC 주유소 없이 11만 단위로 구입하면 ";
+	text += totalmoney;	
+	text += "원임 ㅋㅋ 과금 멈춰!";
 	document.getElementById("result").innerHTML = text;
 }
 function nwc(x) {

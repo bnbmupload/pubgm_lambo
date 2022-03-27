@@ -81,60 +81,7 @@ function calc()
 		stoken = stoken + ctk;
 		for (i = 0; i < 1;) 	
 		{
-		
-			if (cgn == 99||cgn==199||cgn==289)
-			{
-				stoken = stoken + 1;
-			}
-			else
-			{
-				var random = Math.random();
-				if (random <= 0.0016)
-				{
-					if (sag)
-						stoken = stoken + 1;
-					else
-						sag = 1;
-				}
-				else if (random <= 0.0032)
-				{
-					if (sem)
-						stoken = stoken + 1;
-					else
-						sem = 1;
-				}
-				else if (random <= 0.0048)
-				{
-					if (sus)
-						stoken = stoken + 1;
-					else
-						sus = 1;
-				}
-				else if (random <= 0.0056)
-				{
-					if (sab)
-						stoken = stoken + 1;
-					else
-						sab = 1;
-				}
-				else if (random <= 0.0064)
-				{
-					if (seg)
-						stoken = stoken + 1;
-					else
-						seg = 1;
-				}
-				else if (random <= 0.0072)
-				{
-					if (sup)
-						stoken = stoken + 1;
-					else
-						sup = 1;
-				}
-			}
-			ucc = ucc + 1;
-			cgn = cgn + 1;
-			/*
+		/*
 				성공 조건 판단
 			*/
 			var sucreq = 0;
@@ -199,6 +146,58 @@ function calc()
 					break;
 				}
 			}
+			if (cgn == 99||cgn==199||cgn==289)
+			{
+				stoken = stoken + 1;
+			}
+			else
+			{
+				var random = Math.random();
+				if (random <= 0.0016)
+				{
+					if (sag)
+						stoken = stoken + 1;
+					else
+						sag = 1;
+				}
+				else if (random <= 0.0032)
+				{
+					if (sem)
+						stoken = stoken + 1;
+					else
+						sem = 1;
+				}
+				else if (random <= 0.0048)
+				{
+					if (sus)
+						stoken = stoken + 1;
+					else
+						sus = 1;
+				}
+				else if (random <= 0.0056)
+				{
+					if (sab)
+						stoken = stoken + 1;
+					else
+						sab = 1;
+				}
+				else if (random <= 0.0064)
+				{
+					if (seg)
+						stoken = stoken + 1;
+					else
+						seg = 1;
+				}
+				else if (random <= 0.0072)
+				{
+					if (sup)
+						stoken = stoken + 1;
+					else
+						sup = 1;
+				}
+			}
+			ucc = ucc + 1;
+			cgn = cgn + 1;			
 		}
 		if (totaltry >= 30000)
 			break
@@ -211,12 +210,19 @@ function calc()
 	var totalmoney = Math.ceil(totaluc/8100);
 	totalmoney = nwc(totalmoney*110000);
 	totaluc = nwc(totaluc);
+	if (ucc == 0)
+	{
+		text ="이미 조건을 만족했는데?? 0 UC 컷!";
+	}
+	else
+	{
 	text += "평균적으로 "
 	text += totaluc;
 	text += "UC 사용해서 끝냈당<br>";
 	text += "이거 UC 주유소 없이 11만 단위로 구입하면 ";
 	text += totalmoney;	
 	text += "원임 ㅋㅋ 과금 멈춰!";
+	}
 	document.getElementById("result").innerHTML = text;
 }
 function nwc(x) {

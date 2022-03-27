@@ -16,6 +16,7 @@
 			<div class="inputtext"><label>우르스 펄</label><input type="checkbox" id="iup" value="130"></div>
 			<br>
 			<div class="inputtext"><label>현재 뽑은 횟수</label><input type="number" id="cgn" value="0"></div>
+			<div class="inputtext"><label>현재 보유 휘장</label><input type="number" id="ctk" value="0"></div>
 			
 		</div>
 	</div>
@@ -74,7 +75,10 @@ function calc()
 		var seg = document.getElementById("ieg").checked;
 		var sup = document.getElementById("iup").checked;
 		var cgn = document.getElementById("cgn").value;
+		var ctk = document.getElementById("ctk").value;
 		cgn *= 1;
+		ctk *= 1;
+		stoken = stoken + ctk;
 		for (i = 0; i < 1;) 	
 		{
 		

@@ -1,0 +1,218 @@
+﻿<html>
+<head>
+<link rel="stylesheet" type="text/css" href="flame.css" />
+</head>
+<body>
+<div id = "large1">
+	<div id = "area2">
+		<div id="area2_level">
+			현재 보유중인 차량에 체크하세요<br>
+			<div class="inputtext"><label>아벤타도르 그린 </label><input type="checkbox" id="iag" value="160"></div>
+			<div class="inputtext"><label>에스토크 메탈그레이</label><input type="checkbox" id="iem" value="130"></div>
+			<div class="inputtext"><label>우르스 썬</label><input type="checkbox" id="ius" value="130"></div>
+			<br>
+			<div class="inputtext"><label>아벤타도르 블루 </label><input type="checkbox" id="iab" value="160"></div>
+			<div class="inputtext"><label>에스토크 골드</label><input type="checkbox" id="ieg" value="130"></div>
+			<div class="inputtext"><label>우르스 펄</label><input type="checkbox" id="iup" value="130"></div>
+			<br>
+			<div class="inputtext"><label>현재 뽑은 횟수</label><input type="number" id="cgn" value="0"></div>
+			
+		</div>
+	</div>
+	<div id = "area2">
+		<div id="area2_level">
+			<br><br>목표 차량에 체크하세요<br>
+			<div class="inputtext"><label>아벤타도르 그린 </label><input type="checkbox" id="ag" value="160"></div>
+			<div class="inputtext"><label>에스토크 메탈그레이</label><input type="checkbox" id="em" value="130"></div>
+			<div class="inputtext"><label>우르스 썬</label><input type="checkbox" id="us" value="130"></div>
+			<br>
+			<div class="inputtext"><label>아벤타도르 블루 </label><input type="checkbox" id="ab" value="160"></div>
+			<div class="inputtext"><label>에스토크 골드</label><input type="checkbox" id="eg" value="130"></div>
+			<div class="inputtext"><label>우르스 펄</label><input type="checkbox" id="up" value="130"></div>
+			<br>			
+			<div class="inputtext"><label>아벤타도르 그래파이트(히든)</label><input type="checkbox" id="ap" value="130"></div>
+		</div>
+		<br>
+	</div>
+	<input type="button" value="계산하기" onclick="calc()">
+	</div>
+<div id="large2">
+<!-- 이 영역은 결과를 표시합니다. -->
+	<div id ="result">계산 대기중...</div>
+</div>
+
+
+
+</body>
+<script>
+function calc()
+{
+	var text = "";
+	var totaltry = 0;
+	var totaluc = 0;
+	var ucc = 0;
+	
+	
+	var tag = document.getElementById("ag").checked;
+	var tem = document.getElementById("em").checked;
+	var tus = document.getElementById("us").checked;
+	var tab = document.getElementById("ab").checked;
+	var teg = document.getElementById("eg").checked;
+	var tup = document.getElementById("up").checked;
+	var tap = document.getElementById("ap").checked;
+	for (i = 0; i < 1;) 
+	{
+		var stoken = 0;
+		var sag = document.getElementById("iag").checked;
+		var sem = document.getElementById("iem").checked;
+		var sus = document.getElementById("ius").checked;
+		var sab = document.getElementById("iab").checked;
+		var seg = document.getElementById("ieg").checked;
+		var sup = document.getElementById("iup").checked;
+		var cgn = document.getElementById("cgn").value;
+		cgn *= 1;
+		for (i = 0; i < 1;) 	
+		{
+		
+			if (cgn == 99||cgn==199||cgn==289)
+			{
+				stoken = stoken + 1;
+			}
+			else
+			{
+				var random = Math.random();
+				if (random <= 0.0016)
+				{
+					if (sag)
+						stoken = stoken + 1;
+					else
+						sag = 1;
+				}
+				else if (random <= 0.0032)
+				{
+					if (sem)
+						stoken = stoken + 1;
+					else
+						sem = 1;
+				}
+				else if (random <= 0.0048)
+				{
+					if (sus)
+						stoken = stoken + 1;
+					else
+						sus = 1;
+				}
+				else if (random <= 0.0056)
+				{
+					if (sab)
+						stoken = stoken + 1;
+					else
+						sab = 1;
+				}
+				else if (random <= 0.0064)
+				{
+					if (seg)
+						stoken = stoken + 1;
+					else
+						seg = 1;
+				}
+				else if (random <= 0.0072)
+				{
+					if (sup)
+						stoken = stoken + 1;
+					else
+						sup = 1;
+				}
+			}
+			ucc = ucc + 1;
+			cgn = cgn + 1;
+			/*
+				성공 조건 판단
+			*/
+			var sucreq = 0;
+			if (tap)
+			{
+				// 모든거 다모으고 3개추가
+				if (!sag)
+					sucreq = sucreq + 1;
+				if (!sem)
+					sucreq = sucreq + 1;
+				if (!sus)
+					sucreq = sucreq + 1;
+				if (!sab)
+					sucreq = sucreq + 3;
+				if (!seg)
+					sucreq = sucreq + 3;
+				if (!sup)
+					sucreq = sucreq + 3;
+				sucreq = sucreq + 3;
+				if (stoken >= sucreq)
+				{
+					// 성공
+					totaltry = totaltry + 1;
+					break;
+				}
+			}
+			else
+			{
+				if ((!sag)&&(tag))
+					sucreq = sucreq + 1;
+				if ((!sem)&&(tem))
+					sucreq = sucreq + 1;
+				if ((!sus)&&(tus))
+					sucreq = sucreq + 1;
+				if ((!sab)&&(tab))
+					sucreq = sucreq + 3;
+				if ((!seg)&&(teg))
+					sucreq = sucreq + 3;
+				if ((!sup)&&(tup))
+					sucreq = sucreq + 3;
+				if (stoken >= sucreq)
+				{
+					// 성공
+					totaltry = totaltry + 1;
+					break;
+				}
+			}
+		}
+		if (totaltry >= 10000)
+			break
+	}
+	/*
+		텍스트 처리부
+	*/
+	ucc = ucc/totaltry;
+	totaluc = Math.ceil(ucc/10)*1620;
+	totaluc = nwc(totaluc);
+	text += "평균적으로 "
+	text += totaluc;
+	text += "UC 사용해서 끝냈당";
+	document.getElementById("result").innerHTML = text;
+}
+function nwc(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+function opi(x) {
+	if (x >= 0)
+		return x
+	return 0
+}
+function parseIntS(x){
+	x = parseFloat(x)
+	if (isNaN(x))
+		return 0
+	return x;
+}
+function pick4(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+	a = a.slice(0,4);
+    return a;
+}
+</script>
+</html>
